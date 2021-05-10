@@ -25,8 +25,10 @@ It is a lot more extendable and customizable.
 
 ## Usage
 
+### Example with React Class
+
 ```js
-import StarRatings from './react-star-ratings';
+import StarRatings from 'react-star-ratings';
 
 class Foo extends Component {
     changeRating( newRating, name ) {
@@ -61,6 +63,28 @@ class Bar extends Component {
       />
     );
   }
+}
+```
+
+### Example with React Hooks
+
+```javascript
+import { useState } from 'react';
+import StarRatings from 'react-star-ratings';
+
+const MyRatings = () => {
+const [ rating, setRating ] = useState(0);
+
+    return (
+        <div className={ratingsClass}>
+          <StarRatings
+            rating={rating}
+            starRatedColor="blue"
+            changeRating={(newRating) => setRating( newRating )}
+            numberOfStars={5}
+            name='rating'
+          />
+);
 }
 ```
 
